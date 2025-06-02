@@ -9,19 +9,19 @@
 }
 
 :root{
-    --primary-color: #131314;
-    --secondary-color: #1E1F20;
-    --secondary-hover-color: #333537;
-  
-    --focus-color: #282A2C;
-    --focus-hover-color: #37393B;
-  
-    --button-hover-color: #2f3030;
-  
-    --text-color: #fff;
-    --text-secondary-color: #D8D8D8;
-    --heading-secondary-color: #444746;
-    --placeholder-color: #ABAFB3;
+    --primary-color: #E6F0EF;
+    --secondary-color: #F7FAF9;
+    --secondary-hover-color: #D6E5E3;
+    --focus-color: #C7E5E0;
+    --focus-hover-color: #B3D9D3;
+    --button-hover-color: #A3D9B1;
+    --accent-color: #6EC6CA;
+    --accent-color-2: #A3D9B1;
+    --highlight-color: #F7B267;
+    --text-color: #333;
+    --text-secondary-color: #4D4D4D;
+    --heading-secondary-color: #6EC6CA;
+    --placeholder-color: #A0B3B0;
 }
 
 .light_mode{
@@ -42,6 +42,7 @@
 
 body{
     background: var(--primary-color);
+    color: var(--text-color);
 }
 
 .header,
@@ -65,8 +66,9 @@ body.hide-header .header{
 }
 
 .navbar__logo{
-    color: var(--text-secondary-color);
-    font-weight: 600;
+    color: var(--accent-color);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .navbar__button{
@@ -92,20 +94,19 @@ body.hide-header .header{
 }
 
 .header__title h1{
-    width: fit-content;
-    background: linear-gradient(to right, #4a90e2, #a355b9, #ff6b6b);
+    background: linear-gradient(to right, #6EC6CA, #A3D9B1, #F7B267);
     background-clip: text;
     -webkit-background-clip: text;
     text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
-    font-size: 3.25rem;
-    font-weight: 600;
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 .header__title h2{
-    color: var(--heading-secondary-color);
-    font-size: 3.25rem;
-    font-weight: 600;
+    color: var(--accent-color-2);
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .suggests{
@@ -439,6 +440,80 @@ blockquote{
     color: var(--text-color);
 }
 
+.meditation-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.meditation-action__item {
+    background: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 1.25rem;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(110, 198, 202, 0.08);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.meditation-action__item:hover {
+    background: var(--secondary-hover-color);
+    box-shadow: 0 4px 16px rgba(110, 198, 202, 0.15);
+}
+
+.meditation-action__item-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-secondary-color);
+}
+
+.meditation-action__item-icon i {
+    font-size: 2rem;
+    color: var(--highlight-color);
+    background: var(--accent-color-2);
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto 0 auto;
+    max-width: 824px;
+    gap: 2rem;
+}
+
+.dashboard section {
+    background: var(--secondary-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(110, 198, 202, 0.08);
+}
+
+.dashboard h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.progress__content,
+.mood-journal__content,
+.daily-tip__content {
+    color: var(--text-secondary-color);
+    font-size: 1rem;
+    min-height: 2rem;
+}
+
 @media screen and (max-width: 980px) {
     
     .header{
@@ -474,4 +549,214 @@ blockquote{
         font-size: 0.8rem;
     }
 
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(110, 198, 202, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal__content {
+    background: var(--secondary-color);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem 2rem 2rem;
+    box-shadow: 0 8px 32px rgba(110, 198, 202, 0.18);
+    position: relative;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+}
+.modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.modal__close:hover {
+    color: var(--highlight-color);
+}
+.modal__timer {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 1.5rem 0 1rem 0;
+}
+.modal__start-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background 0.2s;
+}
+.modal__start-btn:hover {
+    background: var(--highlight-color);
+    color: var(--text-color);
+}
+.modal__instructions {
+    color: var(--text-secondary-color);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Breathing Exercise Modal */
+.modal__breathing-guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+.breathing-circle {
+    width: 100px;
+    height: 100px;
+    background: var(--accent-color-2);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    transition: transform 3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.breathing-circle.expand {
+    transform: scale(1.5);
+}
+.breathing-circle.shrink {
+    transform: scale(1);
+}
+#breathingText {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Affirmation Modal */
+.modal__affirmation-text {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin: 2rem 0 1.5rem 0;
+    font-weight: 600;
+    min-height: 2.5rem;
+}
+
+/* Mood Modal */
+.modal__mood-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1.5rem 0 1rem 0;
+}
+.modal__mood-input label {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+#moodInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--accent-color-2);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+#moodInput:focus {
+    border: 1.5px solid var(--accent-color);
+}
+
+/* Chat History Sidebar */
+.chat-history-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: var(--primary-color);
+    border-right: 1px solid #d6e5e3;
+    box-shadow: 2px 0 8px rgba(110,198,202,0.05);
+    z-index: 1500;
+    padding: 1.5rem 0.5rem 1.5rem 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+body.dark_mode .chat-history-sidebar {
+    border-right: 1px solid #23272a;
+}
+
+.chat-history-item {
+    background: var(--secondary-color);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+    border: 1.5px solid transparent;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.chat-history-item.selected, .chat-history-item:hover {
+    background: var(--accent-color-2);
+    color: var(--accent-color);
+    border: 1.5px solid var(--accent-color);
+}
+@media (max-width: 700px) {
+    .chat-history-sidebar {
+        width: 100vw;
+        height: auto;
+        position: static;
+        border-right: none;
+        box-shadow: none;
+        flex-direction: row;
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+    .chat-history-item {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 0;
+    }
+}
+body.with-sidebar {
+    margin-left: 220px;
+}
+@media (max-width: 700px) {
+    body.with-sidebar {
+        margin-left: 0;
+    }
+}
+
+/* Delete button for chat history */
+.delete-chat-btn {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.2rem;
+    cursor: pointer;
+    float: right;
+    margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+.delete-chat-btn:hover {
+    color: #e55865;
 }

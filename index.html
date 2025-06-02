@@ -7,77 +7,124 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Google Gemini Clone</title>
+    <title>Meditation Coach</title>
 </head>
 
 <body>
-
     <nav class="navbar">
-        <h3 class="navbar__logo">Gemini Bot</h3>
-        <button class="navbar__button" id="themeToggler"><i class='bx bx-sun'></i></button>
+        <h3 class="navbar__logo">Meditation Coach</h3>
+        <div style="display: flex; gap: 0.5rem;">
+            <button class="navbar__button" id="newChatButton" title="New Chat"><i class='bx bx-plus'></i></button>
+            <button class="navbar__button" id="themeToggler" title="Toggle theme"><i class='bx bx-sun'></i></button>
+        </div>
     </nav>
 
     <header class="header">
         <div class="header__title">
-            <h1>Hello, There!</h1>
-            <h2>How can I help you today?</h2>
+            <h1>Welcome, Peace Seeker!</h1>
+            <h2>Your journey to calm starts here.</h2>
         </div>
-        <div class="suggests">
-            <div class="suggests__item">
-                <p class="suggests__item-text">
-                    Give tips on helping kids finish their homework on time
-                </p>
-                <div class="suggests__item-icon">
-                    <i class='bx bx-stopwatch'></i>
-                </div>
+        <div class="meditation-actions">
+            <div class="meditation-action__item">
+                <p class="meditation-action__item-text">Start a 5-min Meditation</p>
+                <div class="meditation-action__item-icon"><i class='bx bx-play-circle'></i></div>
             </div>
-            <div class="suggests__item">
-                <p class="suggests__item-text">
-                    Help me write an out-of-office email
-                </p>
-                <div class="suggests__item-icon">
-                    <i class='bx bx-edit-alt'></i>
-                </div>
+            <div class="meditation-action__item">
+                <p class="meditation-action__item-text">Breathing Exercise</p>
+                <div class="meditation-action__item-icon"><i class='bx bx-wind'></i></div>
             </div>
-            <div class="suggests__item">
-                <p class="suggests__item-text">
-                    Give me phrases to learn a new language
-                </p>
-                <div class="suggests__item-icon">
-                    <i class='bx bx-compass'></i>
-                </div>
+            <div class="meditation-action__item">
+                <p class="meditation-action__item-text">Daily Affirmation</p>
+                <div class="meditation-action__item-icon"><i class='bx bx-heart'></i></div>
             </div>
-            <div class="suggests__item">
-                <p class="suggests__item-text">
-                    Show me how to build something by hand
-                </p>
-                <div class="suggests__item-icon">
-                    <i class='bx bx-wrench'></i>
-                </div>
+            <div class="meditation-action__item">
+                <p class="meditation-action__item-text">Log My Mood</p>
+                <div class="meditation-action__item-icon"><i class='bx bx-happy'></i></div>
             </div>
         </div>
     </header>
+
+    <main class="dashboard">
+        <section class="progress">
+            <h3>My Progress</h3>
+            <div class="progress__content">(Streaks, minutes, milestones will appear here)</div>
+        </section>
+        <section class="mood-journal">
+            <h3>Mood Journal</h3>
+            <div class="mood-journal__content">(Mood entries will appear here)</div>
+        </section>
+        <section class="daily-tip">
+            <h3>Daily Tip</h3>
+            <div class="daily-tip__content">(A calming tip or quote will appear here)</div>
+        </section>
+    </main>
 
     <section class="chats"></section>
 
     <section class="prompt">
         <form action="#" class="prompt__form" novalidate>
             <div class="prompt__input-wrapper">
-                <input type="text" placeholder="Enter a prompt here" class="prompt__form-input" required>
-                <button class="prompt__form-button" id="sendButton">
+                <input type="text" placeholder="Share your thoughts or ask for guidance..." class="prompt__form-input" required>
+                <button class="prompt__form-button" id="sendButton" title="Send">
                     <i class='bx bx-send'></i>
                 </button>
-                <button class="prompt__form-button" id="deleteButton">
+                <button class="prompt__form-button" id="deleteButton" title="Delete">
                     <i class='bx bx-trash'></i>
                 </button>
             </div>
         </form>
         <p class="prompt__disclaim">
-            Gemini may display inaccurate info, including about people, so double-check its responses.
+            This meditation coach is for relaxation and mindfulness. For medical advice, consult a professional.
         </p>
     </section>
 
+    <div id="meditationModal" class="modal" style="display:none;">
+        <div class="modal__content">
+            <span class="modal__close" id="closeMeditationModal" title="Close">&times;</span>
+            <h2>5-Minute Guided Meditation</h2>
+            <div id="meditationTimer" class="modal__timer">05:00</div>
+            <button id="startMeditationBtn" class="modal__start-btn">Start</button>
+            <div id="meditationInstructions" class="modal__instructions">
+                <p>Find a comfortable position, close your eyes, and focus on your breath. Let thoughts come and go without judgment. I will let you know when the session is complete.</p>
+            </div>
+        </div>
+    </div>
 
+    <div id="breathingModal" class="modal" style="display:none;">
+        <div class="modal__content">
+            <span class="modal__close" id="closeBreathingModal" title="Close">&times;</span>
+            <h2>Breathing Exercise</h2>
+            <div id="breathingGuide" class="modal__breathing-guide">
+                <!-- Animation and instructions will go here -->
+                <div class="breathing-circle"></div>
+                <div id="breathingText">Breathe In</div>
+            </div>
+            <button id="startBreathingBtn" class="modal__start-btn">Start</button>
+        </div>
+    </div>
+
+    <div id="affirmationModal" class="modal" style="display:none;">
+        <div class="modal__content">
+            <span class="modal__close" id="closeAffirmationModal" title="Close">&times;</span>
+            <h2>Daily Affirmation</h2>
+            <div id="affirmationText" class="modal__affirmation-text">(Affirmation will appear here)</div>
+            <button id="newAffirmationBtn" class="modal__start-btn">Show Another</button>
+        </div>
+    </div>
+
+    <div id="moodModal" class="modal" style="display:none;">
+        <div class="modal__content">
+            <span class="modal__close" id="closeMoodModal" title="Close">&times;</span>
+            <h2>Log My Mood</h2>
+            <div class="modal__mood-input">
+                <label for="moodInput">How are you feeling?</label>
+                <input type="text" id="moodInput" placeholder="e.g., Calm, Happy, Anxious...">
+            </div>
+            <button id="saveMoodBtn" class="modal__start-btn">Save Mood</button>
+        </div>
+    </div>
+
+    <aside id="chatHistorySidebar" class="chat-history-sidebar" style="display:none;"></aside>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
