@@ -8,12 +8,15 @@
     font-family: "Open Sans", sans-serif;
 }
 
+/* =====================
+   Root Variables
+   ===================== */
 :root{
     --primary-color: #E6F0EF;
     --secondary-color: #F7FAF9;
     --secondary-hover-color: #D6E5E3;
     --focus-color: #C7E5E0;
-    --focus-hover-color: #B3D9D3;
+    --focus-hover-color: #B3D9B3;
     --button-hover-color: #A3D9B1;
     --accent-color: #6EC6CA;
     --accent-color-2: #A3D9B1;
@@ -58,6 +61,9 @@ body.hide-header .header{
     display: none;
 }
 
+/* =====================
+   Navbar
+   ===================== */
 .navbar{
     display: flex;
     align-items: center;
@@ -89,6 +95,9 @@ body.hide-header .header{
     background: var(--secondary-hover-color);
 }
 
+/* =====================
+   Header
+   ===================== */
 .header{
     margin-top: 6vh;
 }
@@ -151,6 +160,9 @@ body.hide-header .header{
     border-radius: 50%;
 }
 
+/* =====================
+   Prompt/Input Area
+   ===================== */
 .prompt{
     position: fixed;
     background: var(--primary-color);
@@ -235,6 +247,9 @@ body.hide-header .header{
     margin-top: 1rem;
 }
 
+/* =====================
+   Chat Area
+   ===================== */
 .chats{
     padding: 2rem 1rem 10rem;
     max-height: 100%;
@@ -288,11 +303,9 @@ body.hide-header .header{
 }
 
 @keyframes rotate {
-    
     100%{
         transform: rotate(360deg);
     }
-
 }
 
 .chats .message__icon{
@@ -344,7 +357,6 @@ body.hide-header .header{
 }
 
 @keyframes loading {
-    
     0%{
         background-position: -800px 0;
     }
@@ -354,7 +366,6 @@ body.hide-header .header{
     100%{
         background-position: 800px 0;
     }
-
 }
 
 .code__copy-btn{
@@ -440,6 +451,9 @@ blockquote{
     color: var(--text-color);
 }
 
+/* =====================
+   Meditation Actions
+   ===================== */
 .meditation-actions {
     display: flex;
     align-items: center;
@@ -483,6 +497,9 @@ blockquote{
     border-radius: 50%;
 }
 
+/* =====================
+   Dashboard
+   ===================== */
 .dashboard {
     display: flex;
     justify-content: space-between;
@@ -514,44 +531,9 @@ blockquote{
     min-height: 2rem;
 }
 
-@media screen and (max-width: 980px) {
-    
-    .header{
-        padding: 0 2rem;
-    }
-
-    .header__title{
-        line-height: 2.8rem;
-    }
-
-    .header__title h1{
-        font-size: 2.7rem;
-    }
-
-    .header__title h2{
-        font-size: 2.5rem;
-    }
-
-    .suggests{
-        justify-content: center;
-    }
-
-    .suggests__item:nth-child(3),
-    .suggests__item:nth-child(4){
-        display: none;
-    }
-
-    .message{
-        padding: 0 1.5rem;
-    }
-
-    .prompt__disclaim{
-        font-size: 0.8rem;
-    }
-
-}
-
-/* Modal styles */
+/* =====================
+   Modals
+   ===================== */
 .modal {
     position: fixed;
     z-index: 2000;
@@ -614,6 +596,9 @@ blockquote{
     margin-top: 1rem;
 }
 
+/* =====================
+   Breathing, Affirmation, Mood Modals
+   ===================== */
 /* Breathing Exercise Modal */
 .modal__breathing-guide {
     display: flex;
@@ -678,7 +663,9 @@ blockquote{
     border: 1.5px solid var(--accent-color);
 }
 
-/* Chat History Sidebar */
+/* =====================
+   Chat History Sidebar
+   ===================== */
 .chat-history-sidebar {
     position: fixed;
     top: 0;
@@ -759,4 +746,35 @@ body.with-sidebar {
 }
 .delete-chat-btn:hover {
     color: #e55865;
+}
+
+/* =====================
+   Responsive Styles
+   ===================== */
+@media screen and (max-width: 980px) {
+    .header{
+        padding: 0 2rem;
+    }
+    .header__title{
+        line-height: 2.8rem;
+    }
+    .header__title h1{
+        font-size: 2.7rem;
+    }
+    .header__title h2{
+        font-size: 2.5rem;
+    }
+    .suggests{
+        justify-content: center;
+    }
+    .suggests__item:nth-child(3),
+    .suggests__item:nth-child(4){
+        display: none;
+    }
+    .message{
+        padding: 0 1.5rem;
+    }
+    .prompt__disclaim{
+        font-size: 0.8rem;
+    }
 }

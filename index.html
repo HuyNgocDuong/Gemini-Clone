@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-- Navbar (top bar with logo and buttons) -->
     <nav class="navbar">
         <h3 class="navbar__logo">Meditation Coach</h3>
         <div style="display: flex; gap: 0.5rem;">
@@ -19,6 +20,10 @@
         </div>
     </nav>
 
+    <!-- Sidebar: Chat History -->
+    <aside id="chatHistorySidebar" class="chat-history-sidebar" style="display:none;"></aside>
+
+    <!-- Header: Welcome and Meditation Actions -->
     <header class="header">
         <div class="header__title">
             <h1>Welcome, Peace Seeker!</h1>
@@ -44,6 +49,7 @@
         </div>
     </header>
 
+    <!-- Dashboard: Progress, Mood Journal, Daily Tip -->
     <main class="dashboard">
         <section class="progress">
             <h3>My Progress</h3>
@@ -59,8 +65,10 @@
         </section>
     </main>
 
+    <!-- Chat Area -->
     <section class="chats"></section>
 
+    <!-- Prompt/Input Area -->
     <section class="prompt">
         <form action="#" class="prompt__form" novalidate>
             <div class="prompt__input-wrapper">
@@ -78,6 +86,8 @@
         </p>
     </section>
 
+    <!-- Modals: Meditation, Breathing, Affirmation, Mood -->
+    <!-- Meditation Modal -->
     <div id="meditationModal" class="modal" style="display:none;">
         <div class="modal__content">
             <span class="modal__close" id="closeMeditationModal" title="Close">&times;</span>
@@ -90,6 +100,7 @@
         </div>
     </div>
 
+    <!-- Breathing Exercise Modal -->
     <div id="breathingModal" class="modal" style="display:none;">
         <div class="modal__content">
             <span class="modal__close" id="closeBreathingModal" title="Close">&times;</span>
@@ -103,6 +114,7 @@
         </div>
     </div>
 
+    <!-- Affirmation Modal -->
     <div id="affirmationModal" class="modal" style="display:none;">
         <div class="modal__content">
             <span class="modal__close" id="closeAffirmationModal" title="Close">&times;</span>
@@ -112,6 +124,7 @@
         </div>
     </div>
 
+    <!-- Mood Modal -->
     <div id="moodModal" class="modal" style="display:none;">
         <div class="modal__content">
             <span class="modal__close" id="closeMoodModal" title="Close">&times;</span>
@@ -124,8 +137,7 @@
         </div>
     </div>
 
-    <aside id="chatHistorySidebar" class="chat-history-sidebar" style="display:none;"></aside>
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="script.js"></script>
